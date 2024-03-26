@@ -13,11 +13,10 @@
 -------------------------------------------------------------------------------------------   
 ## 1. Objective
 
-Stock price prediction aims to forecast the future movement of a stock's price based on 
+- Stock price prediction aims to forecast the future movement of a stock's price based on 
 historical data and various factors such as market trends, company performance and investor 
 sentiment. The goal is to make informed investment decisions, including buying, selling, or 
-holding stocks, with the aim of maximizing profits or minimizing losses. 
-                                                                       The objective is to understand the underlying structure in TCS Stock Price data and come up with a suitable forecasting model that can effectively forecast for the next 30 Days.
+holding stocks, with the aim of maximizing profits or minimizing losses.The objective is to understand the underlying structure in TCS Stock Price data and come up with a suitable forecasting model that can effectively forecast for the next 30 Days.
 -------------------------------------------------------------------------------------------  
 ## 2. Project Structure
 
@@ -88,15 +87,43 @@ For data visualization of the TCS dataset, incorporate various Python libraries 
 5. ACF & PACF: The pattern in the autocorrelation plot suggests positive autocorrelation at
    small lag values which decreases as lag value increases. For the partial autocorrelation
    plot it suggests the suitability of an autoregressive model with a lag order of 2.
-   
-
+-------------------------------------------------------------------------------------------   
 ## 6. Feature Extraction    
 
+Feature engineering involves extracting meaningful information from data by selecting, 
+creating, or transforming features. This process enhances the performance of machine 
+learning models by providing them with relevant and informative input variables.
 
-   
+1. Date Features: Extract features such as day of the week, month, quarter, and year from
+the date column, as these could capture potential seasonal or cyclical patterns.
 
-   
+2. Lag Features: Create lag features by shifting the closing price by a certain number of
+   time steps, which can capture autocorrelation in the data.
 
+3. Price Change: Calculate the percentage change in the closing price from the previous
+   day, which can capture volatility in the data.
+--------------------------------------------------------------------------------------------
 
+## 7. Model Building and Evaluation
+1. Model Selection: Choose a machine learning model suitable for time series forecasting.
+Some common models for this task include LSTM (Long Short-Term Memory),ARIMA(Autoregressive
+Integrated Moving Average),SES (Seasonal Exponential Smoothing),Holt's Method,Holt-Winters
+Method.
 
+2.Model Training: Train the selected model using the training dataset. For neural networks like LSTM, you may need to reshape the input data into a 3D array (samples, time steps, features).
 
+3.Model Evaluation: Evaluate the trained model using the testing dataset. Common evaluation metrics include Mean Absolute Error (MAE), Mean Squared Error (MSE), and Root Mean Squared Error (RMSE).
+
+4. Prediction: Make predictions using the trained model on the test dataset.
+
+5. Visualization: Visualize the predicted stock prices against the actual prices to understand the model's performance.
+-------------------------------------------------------------------------------------------   
+## 8. Model Deployment
+
+To deploy a model for predicting TCS stock prices, follow these general steps:
+
+1. Model Training and Serialization: Train your model using the TCS dataset and serialize it (save it to a file) using a library like joblib or pickle in Python
+
+2. Web Application Setup: Set up a web application framework like Flask or Django to create a web interface for users to interact with your model.
+
+3. Model Loading: Load the serialized model in your web application code to make predictions.
