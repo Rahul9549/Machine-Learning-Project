@@ -1,4 +1,4 @@
-## TCS – Stock Price Prediction
+## TCS–Stock Price Prediction
 --------------------------------------------------------------------------------------------
 ## Contents
 
